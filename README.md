@@ -1,14 +1,15 @@
-# osx_docker_gui
-Docker GUI on OSX, with better security (lo0 binding)
+# Docker GUI on OSX, with better security (lo0 binding)
+If you're looking for a way to run apps with GUI inside a docker container, on MacOS/OSX, here's one way of doing it.
+
 https://medium.com/@cristiterpea/running-docker-gui-apps-on-osx-the-safer-way-8bbdbea2241c
 
-
-If you're looking for a way to run apps with GUI inside a docker container, on MacOS/OSX, here's one way of doing it.
+---
 
 In previous existing solutions, you were either required:
  - to bind to *:6000 (by enabling XQuartz "Allow connections from network clients" option) - opening to potential remote attacks.
  - to ssh to the docker container
 
+---
 
 It appears that a docker container can connect to its host, through lo0 interface - by adding an alias.
 
@@ -19,6 +20,7 @@ $ netstat -an | grep LISTEN
 tcp4       0      0  10.254.254.254.6000    *.*                    LISTEN
 ```
 
+---
 
 ## Install pre-requisites:
 - XQuartz: https://www.xquartz.org
